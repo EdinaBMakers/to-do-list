@@ -8,5 +8,6 @@ module.exports = function(app) {
     .post(toDoList.createAtask);
 
   app.route('/tasks/:taskId')
-    .get(toDoList.readATask);
+    .get(toDoList.readATask)
+    .put(toDoList.updateATask);
 };

@@ -25,3 +25,10 @@ exports.readATask = function(req, res) {
     res.json(task);
   });
 }
+
+exports.updateATask = function(req, res) {
+  Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, task) {
+    if (err) { return res.send(err) }
+    res.json(task);
+  });
+}
