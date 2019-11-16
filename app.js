@@ -12,10 +12,11 @@ mongoose.connect('mongodb://localhost/ToDodb');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+routes(app);
+
 app.use(function(req, res) {
   res.status(404).send({url: req.originalUrl + ' not found'})
 });
-
-routes(app);
 
 module.exports = app;
