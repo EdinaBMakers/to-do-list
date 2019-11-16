@@ -18,3 +18,10 @@ exports.createAtask = function(req,res) {
     res.json(task);
   });
 };
+
+exports.readATask = function(req, res) {
+  Task.findById({_id: req.params.taskId}, req.body, function(err, task) {
+    if (err) { return res.send(err); }
+    res.json(task);
+  });
+}

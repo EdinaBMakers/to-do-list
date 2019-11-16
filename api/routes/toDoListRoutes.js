@@ -6,4 +6,7 @@ module.exports = function(app) {
   app.route('/tasks')
     .get(toDoList.listAllTasks)
     .post(toDoList.createAtask);
+
+  app.route('/tasks/:taskId')
+    .get(toDoList.readATask);
 };
