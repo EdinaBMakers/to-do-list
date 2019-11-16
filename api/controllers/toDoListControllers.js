@@ -9,3 +9,12 @@ exports.listAllTasks = function(req, res) {
     res.json(task);
   }); 
 };
+
+exports.createAtask = function(req,res) {
+  const newTask = new Task(req.body);
+
+  newTask.save(function(err, task) {
+    if (err) { return res.send(err); }
+    res.json(task);
+  });
+};
