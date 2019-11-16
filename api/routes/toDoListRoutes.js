@@ -9,5 +9,6 @@ module.exports = function(app) {
 
   app.route('/tasks/:taskId')
     .get(toDoList.readATask)
-    .put(toDoList.updateATask);
+    .put(toDoList.updateATask)
+    .delete(toDoList.deleteATask);
 };

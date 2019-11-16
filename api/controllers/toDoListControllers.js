@@ -27,8 +27,15 @@ exports.readATask = function(req, res) {
 }
 
 exports.updateATask = function(req, res) {
-  Task.findOneAndUpdate({_id: req.params.taskId}, req.body, {new: true}, function(err, task) {
+  Task.findOneAndUpdate({_id: req.params.taskId}, req.body, { new: true }, function(err, task) {
     if (err) { return res.send(err) }
     res.json(task);
+  });
+}
+
+exports.deleteATask = function(req, res) {
+  Task.remove({_id: req.params.taskId}, req.body, function(err) {
+    if (err) { return res.send(err); }
+    res.json({ message: "Task successfully deleted" });
   });
 }
